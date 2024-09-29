@@ -10,7 +10,7 @@ namespace Gerenciador_de_Boletos.DB.Connect_db
     internal class Connect_db
     {
 
-        public string ConnectionString { get; private set; } = new string(@"");//path
+        public const string ConnectionString= @"Server=127.0.0.0.1;Port=3306;DataBase=Boletos DB;User ID=root;Password=Admin;";
         public MySqlConnection? cnn { get; private set; }
 
         protected void Connection()

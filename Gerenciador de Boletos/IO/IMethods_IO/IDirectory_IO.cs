@@ -9,7 +9,7 @@ namespace Gerenciador_de_Boletos.IO.IFuncions_IO
     internal interface IDirectory_IO
     {
         void CreateDirectory_IO() { }
-        void CreateSubDirectory_IO();
+        void CreateSubDirectory_IO() { }
         void DeleteDirectory_IO() { }
     }
 }
