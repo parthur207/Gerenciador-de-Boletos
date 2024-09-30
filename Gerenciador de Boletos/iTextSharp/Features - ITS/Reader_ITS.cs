@@ -7,23 +7,27 @@ using System.Threading.Tasks;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using Gerenciador_de_Boletos.IO.Features___IO;
+using iTextSharp.text.pdf.parser;
 
 
 namespace Gerenciador_de_Boletos.iTextSharp.Directory___Funcions
 {
-    internal class Reader_ITS: CreateDirectory, IDirectory_ITS
+    internal class Reader_ITS : CreateDirectory, IDirectory_ITS
     {
-        bool validacao_reader = true;
-        public string conteudo_pdf { get; protected set; }
-
-        protected string Path;
-        public void Reader_PDF()
+        public string Reader_PDF(string path_arquivos_pdf)
         {
-            Path = GetPath();
+            using (PdfReader leitor = new PdfReader(path_arquivos_pdf))
+            {
+                string conteudo_pdf = string.Empty;
 
-
+                for (int i = 1; i <= leitor.NumberOfPages; i++)
+                {
+                    conteudo_pdf += PdfTextExtractor.GetTextFromPage(leitor, i);
+                }
+                leitor.Close();
+                return conteudo_pdf;
+            }
         }
-
-
     }
 }
+

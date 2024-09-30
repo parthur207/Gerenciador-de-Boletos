@@ -11,7 +11,7 @@ namespace Gerenciador_de_Boletos.IO.IFuncions_IO
     internal class DeleteDirectory: CreateDirectory, IDirectory_IO
     {
 
-        protected override string GetPath()
+        protected string GetPath()
         {
 
             return base.GetPath();

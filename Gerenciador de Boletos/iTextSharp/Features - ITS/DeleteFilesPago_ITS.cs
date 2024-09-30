@@ -10,6 +10,9 @@ namespace Gerenciador_de_Boletos.IO.Directory___Funcions
     internal class DeleteFilesPago_ITS : IDirectory_ITS
     {
 
-        public void DeleteFilesPago_PDF() { }
+        public void DeleteFilesPago_PDF() 
+        { 
+        
+        }
     }
 }

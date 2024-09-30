@@ -10,33 +10,32 @@ namespace Gerenciador_de_Boletos.IO.IFuncions_IO
 {
     internal class CreateSubDirectory : CreateDirectory, IDirectory_IO
     {
+        private string Folder_Pendentes { get;} = "Pendentes";
+        private string Folder_Pagos { get;} = "Pagos";
+        private string Folder_Vencidos { get;} = "Vencidos";
 
-        private string Folder_Pendentes = "Pendentes";
-        private string Folder_Pagos = "Pagos";
-        private string Folder_Vencidos = "Vencidos";
-
-        protected string Path_Pendentes()
+        public string Path_Pendentes()
         {
             string path_FolderPendentes =Path.Combine(base.GetPath(), Folder_Pendentes);
 
            return path_FolderPendentes;
         }
 
-        protected string Path_Pagos()
+        public string Path_Pagos()
         {
             string path_FolderPagos= Path.Combine(base.GetPath(), Folder_Pagos);
 
             return path_FolderPagos;
         }
 
-        protected string Path_Vencidos()
+        public string Path_Vencidos()
         {
             string path_FolderVencidos = Path.Combine(base.GetPath(), Folder_Vencidos);
 
             return path_FolderVencidos;
         }
 
-        public void CreateSubDirectory_IO()
+        protected void CreateSubDirectory_IO()
         {
             try 
             {
