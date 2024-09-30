@@ -1,4 +1,5 @@
 ﻿using Gerenciador_de_Boletos.Funcionalidades___IO.IFuncions_IO;
+using Gerenciador_de_Boletos.IO.Directory___Funcions;
 using Gerenciador_de_Boletos.IO.IFuncions_IO;
 using Gerenciador_de_Boletos.iTextSharp.Directory___Funcions;
 using System;
@@ -13,6 +14,7 @@ namespace Gerenciador_de_Boletos.iTextSharp.Features___ITS
     internal class Reader_Path_ITS: Reader_ITS, IDirectory_ITS
     {    
         CreateSubDirectory csd=new CreateSubDirectory();
+        Reorganizar_ITS reorganizacao = new Reorganizar_ITS();
         #region conteudos_pdfs
         protected string? conteudo_pdf_NoAt { get; private set; }
         protected string? conteudo_pdf_Pendente {  get; private set; }
@@ -20,7 +22,7 @@ namespace Gerenciador_de_Boletos.iTextSharp.Features___ITS
         protected string? conteudo_pdf_Vencidos { get; private set; }
         #endregion
 
-        public void Reader_Path_NoAt()
+        public void Reader_Path_NoAt()//O ato de reorganização, ou seja, readequação dos boletos para as respectivas pastas conforme sua data de nascimento, começa a partir da chamada do método de leitura
         {
             string Path_NoAt = GetPath();
             string[] Path_NoAt_arquivosPdf = Directory.GetFiles(Path_NoAt, "*.pdf");
@@ -30,7 +32,7 @@ namespace Gerenciador_de_Boletos.iTextSharp.Features___ITS
                 try
                 {
                     conteudo_pdf_NoAt = Reader_PDF(caminho_arquivo);
-                    //incremento de um método passando 'conteudo_pdf_NoAt'
+                    reorganizacao.Reorganizar_NoAt(conteudo_pdf_NoAt);
                 }
                 catch (Exception ex)
                 {
@@ -50,7 +52,7 @@ namespace Gerenciador_de_Boletos.iTextSharp.Features___ITS
                 try
                 {
                     conteudo_pdf_Pendente = Reader_PDF(caminho_arquivo);
-                    //incremento de um método passando 'conteudo_pdf_Pendente'
+                    reorganizacao.();
                 }
                 catch (Exception ex) 
                 {

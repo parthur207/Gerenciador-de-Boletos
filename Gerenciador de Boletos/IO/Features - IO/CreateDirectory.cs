@@ -7,7 +7,7 @@ namespace Gerenciador_de_Boletos.IO.Features___IO
     internal class CreateDirectory :  IDirectory_IO
     {
         private string folderName1 = "Boletos";
-        private string folderName2 = "SemAtribuição";
+        private string folderName2 = "Sem_Atribuição";
         private string path_complete { get; set; }
 
 
@@ -17,7 +17,7 @@ namespace Gerenciador_de_Boletos.IO.Features___IO
             Console.WriteLine("\nDigite o caminho da partição onde a pasta com os boletos será criada:");
             string path_Directory = Console.ReadLine().Trim();
 
-            path_complete = Path.Combine(path_Directory, folderName1, folderName2);//'C:\Boletos\SemAtribuição'
+            path_complete = Path.Combine(path_Directory, folderName1, folderName2);//'C:\Boletos\Sem_Atribuição'
             return path_complete;
         }
 
